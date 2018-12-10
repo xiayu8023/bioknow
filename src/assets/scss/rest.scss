@@ -1,0 +1,151 @@
+@import 'variables.scss';
+
+page {
+  height: 100%;
+  font-size: rpx(28);
+}
+
+view, scroll-view, swiper, form, label, input, button {
+  box-sizing: border-box;
+}
+
+// color
+.success {
+  color: $success;
+}
+
+.warning {
+  color: $warning;
+}
+
+.danger {
+  color: $danger;
+}
+
+// color end
+
+// box start
+.p-20 {
+  padding: rpx(40);
+}
+
+.mt-10 {
+  margin-top: rpx(20)
+}
+
+.fr {
+  float: right;
+}
+
+.w-100p {
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+.clearfix {
+  &:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+  }
+}
+
+.vertical-middle {
+  position: absolute;
+  top: 50%;
+  padding: 0;
+  transform: translateY(-50%);
+}
+
+/*最多显示一行*/
+.ellipsis--11 {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis
+}
+
+/*最多显示两行*/
+.ellipsis--l2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical
+}
+
+/*最多显示三行*/
+.ellipsis--l3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical
+}
+
+/*为元素添加 Retina 屏幕下的 1px 边框（即 bordered），基于伪类 transform 实现。*/
+.bordered,
+.bordered--bottom,
+.bordered--left,
+.bordered--right,
+.bordered--surround,
+.bordered--top,
+.bordered--y {
+  position: relative
+}
+
+.bordered--bottom::after,
+.bordered--left::after,
+.bordered--right::after,
+.bordered--y::after,
+.bordered--top::after,
+.bordered::after {
+  content: ' ';
+  position: absolute;
+  pointer-events: none;
+  box-sizing: border-box;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  -webkit-transform: scale(.5);
+  transform: scale(.5);
+  border: 0 solid #eee
+}
+
+.bordered--top::after {
+  border-top-width: 1px
+}
+
+.bordered--left::after {
+  border-left-width: 1px
+}
+
+.bordered--right::after {
+  border-right-width: 1px
+}
+
+.bordered--bottom::after {
+  border-bottom-width: 1px
+}
+
+.bordered--y::after {
+  border-width: 1px 0
+}
+
+.bordered::after {
+  border-width: 1px
+}
+// box end
+
+// bioknow common start
+
+
+// bioknow common end

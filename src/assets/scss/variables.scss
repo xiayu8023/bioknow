@@ -1,0 +1,21 @@
+@function rpx($value) {
+  @return $value * 1rpx;
+}
+
+$white: #fff;
+
+$back: #f7f7f7;
+
+$main-color: #043491;
+
+$gray: #bfbfbf;
+
+$gray-dark: #b6b6b6;
+
+$success: #67C23A;
+
+$warning: #f1bc1a;
+
+$danger: #F56C6C;
+
+$border: #EFEFEF;

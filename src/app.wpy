@@ -1,0 +1,126 @@
+
+<style lang="scss">
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+</style>
+
+<script>
+import wepy from 'wepy'
+import 'wepy-async-function'
+
+import { setStore } from 'wepy-redux'
+import configStore from './store'
+
+const store = configStore()
+setStore(store)
+
+export default class extends wepy.app {
+  config = {
+    pages: [
+      'pages/index',
+      'pages/dashboard/index',
+      'pages/message/index'
+    ],
+    usingComponents: {
+      'van-button': 'components/van/button/index',
+      'van-cell': 'components/van/cell/index',
+      'van-cell-group': 'components/van/cell-group/index',
+      'van-icon': 'components/van/icon/index',
+      'van-row': 'components/van/row/index',
+      'van-col': 'components/van/col/index',
+      'van-popup': 'components/van/popup/index',
+      'van-transition': 'components/van/transition/index',
+      'van-checkbox': 'components/van/checkbox/index',
+      'van-checkbox-group': 'components/van/checkbox-group/index',
+      'van-datetime-picker': 'components/van/datetime-picker/index',
+      'van-field': 'components/van/field/index',
+      'van-radio': 'components/van/radio/index',
+      'van-radio-group': 'components/van/radio-group/index',
+      'van-search': 'components/van/search/index',
+      'van-action-sheet': 'components/van/action-sheet/index',
+      'van-dialog': 'components/van/dialog/index',
+      'van-notify': 'components/van/notify/index',
+      'van-swipe-cell': 'components/van/swipe-cell/index',
+      'van-toast': 'components/van/toast/index',
+      'van-collapse': 'components/van/collapse/index',
+      'van-collapse-item': 'components/van/collapse-item/index'
+    },
+    window: {
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#fff',
+      navigationBarTitleText: 'WeChat',
+      navigationBarTextStyle: 'black'
+    },
+    tabBar: {
+      'backgroundColor': '#F7F7FA',
+      'borderStyle': 'white',
+      'selectedColor': '#043491',
+      'list': [
+        {
+          'pagePath': 'pages/index',
+          'text': '首页',
+          'iconPath': 'assets/img/home.png',
+          'selectedIconPath': 'assets/img/home_c.png'
+        },
+        {
+          'pagePath': 'pages/message/index',
+          'text': '消息',
+          'iconPath': 'assets/img/message.png',
+          'selectedIconPath': 'assets/img/message_c.png'
+        },
+        {
+          'pagePath': 'pages/dashboard/index',
+          'text': '我的',
+          'iconPath': 'assets/img/my.png',
+          'selectedIconPath': 'assets/img/my_c.png'
+        }
+      ]
+    }
+  }
+
+  globalData = {
+    userInfo: null
+  }
+
+  constructor () {
+    super()
+    this.use('requestfix')
+  }
+
+  onLaunch() {
+    this.testAsync()
+  }
+
+  sleep (s) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve('promise resolved')
+      }, s * 1000)
+    })
+  }
+
+  async testAsync () {
+    const data = await this.sleep(3)
+    console.log(data)
+  }
+
+  getUserInfo(cb) {
+    const that = this
+    if (this.globalData.userInfo) {
+      return this.globalData.userInfo
+    }
+    wepy.getUserInfo({
+      success (res) {
+        that.globalData.userInfo = res.userInfo
+        cb && cb(res.userInfo)
+      }
+    })
+  }
+}
+</script>
