@@ -1,63 +1,40 @@
-<style lang="scss">
-  @import '../../assets/scss/variables.scss';
-
-</style>
 <template>
-  <van-toast id="van-toast" />
+  <van-toast id="van-toast"/>
   <view>
-    <van-button type="default" @tap="popup">默认按钮</van-button>
-    <van-button type="danger">危险按钮</van-button>
+
   </view>
 </template>
 
 <script>
   import wepy from 'wepy'
-  import { connect } from 'wepy-redux'
 
   import Toast from '../../components/van/toast/toast'
 
-  import testMixin from '../../mixins/test'
-
-  @connect({
-    num (state) {
-      return state.counter.num
-    },
-    asyncNum (state) {
-      return state.counter.asyncNum
-    },
-    sumNum (state) {
-      return state.counter.num + state.counter.asyncNum
-    }
-  })
-
-  export default class Dashboard extends wepy.page {
+  export default class Message extends wepy.page {
     config = {
       navigationBarTitleText: '消息'
     }
-    components = {
-    }
-
-    mixins = [testMixin]
+    components = {}
 
     data = {
-      mynum: 20,
-      userInfo: {
-        nickName: '加载中...'
-      },
-      normalTitle: '原始标题',
-      setTimeoutTitle: '标题三秒后会被修改',
-      count: 0,
-      netrst: ''
+      imgUrls: [
+        'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
+        'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg'
+      ],
+      indicatorDots: true,
+      interval: 5000,
+      duration: 1000
     }
 
     computed = {
-      now () {
+      now() {
         return +new Date()
       }
     }
 
     methods = {
-      request () {
+      request() {
         let self = this
         let i = 10
         let map = ['MA==', 'MQo=', 'Mg==', 'Mw==', 'NA==', 'NQ==', 'Ng==', 'Nw==', 'OA==', 'OQ==']
@@ -71,15 +48,8 @@
           })
         }
       },
-      popup () {
+      popup() {
         Toast.success('牛逼啊')
-      }
-    }
-
-    events = {
-      'index-emit': (...args) => {
-        let $event = args[args.length - 1]
-        console.log(`${this.$name} receive ${$event.name} from ${$event.source.$name}`)
       }
     }
 
@@ -88,3 +58,7 @@
     }
   }
 </script>
+<style lang="scss">
+  @import '../../assets/scss/variables.scss';
+
+</style>

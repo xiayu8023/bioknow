@@ -1,0 +1,65 @@
+@import 'variables.scss';
+@import 'rest.scss';
+
+//customize
+.mt-40{
+  margin-top: rpx(40);
+}
+
+.mb-40{
+  margin-bottom: rpx(40);
+}
+
+.mr-40{
+  margin-right: rpx(40);
+}
+
+.ml-40{
+  margin-left: rpx(40);
+}
+
+.mx-40{
+  margin-left: rpx(40);
+  margin-right: rpx(40);
+}
+
+.my-40{
+  margin-top: rpx(40);
+  margin-bottom: rpx(40);
+}
+
+//customize end
+
+.bio-input__ph {
+  color: $gray;
+}
+
+.bio-input {
+  padding-bottom: rpx(10);
+  margin-top: rpx(40);
+  border-bottom: 1px solid $main-color;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: stretch;
+
+  label {
+    font-size: rpx(32);
+    display: block;
+    border: 0;
+    flex: none;
+    align-self: auto;
+  }
+
+  input {
+    font-size: rpx(30);
+    text-align: right;
+    border: 0;
+    flex: .8 1 auto;
+    align-self: auto;
+  }
+}
+

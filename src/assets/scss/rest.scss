@@ -145,7 +145,15 @@ view, scroll-view, swiper, form, label, input, button {
 }
 // box end
 
-// bioknow common start
+//rest vant
+.van-button--large{
+  /*height: 40px !important;
+  line-height: 38px !important;*/
+}
 
+.van-button--primary {
+  background-color: $main-color !important;
+  border:1px solid $main-color !important;
+}
 
-// bioknow common end
+//rest vant end

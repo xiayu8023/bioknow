@@ -1,5 +1,6 @@
 
 <style lang="scss">
+  @import 'assets/scss/common.scss';
 .container {
   height: 100%;
   display: flex;
@@ -63,7 +64,7 @@ export default class extends wepy.app {
       'selectedColor': '#043491',
       'list': [
         {
-          'pagePath': 'pages/index',
+          'pagePath': 'pages/dashboard/index',
           'text': '首页',
           'iconPath': 'assets/img/home.png',
           'selectedIconPath': 'assets/img/home_c.png'
